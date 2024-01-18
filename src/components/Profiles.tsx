@@ -3,6 +3,7 @@ import { accountData } from "../data";
 import RenderData from "./RenderData";
 import TableComponent from "./TableComponent";
 import { useParams, useNavigate } from "react-router-dom";
+import BackButton from "./BackButton";
 
 const Result = () => {
   const { accountId } = useParams();
@@ -36,6 +37,7 @@ const Result = () => {
 const Profiles = () => {
   return (
     <>
+      <BackButton />
       <h2 className="mb-4">Profiles</h2>
       <TableComponent
         title1={"Profile Id"}
