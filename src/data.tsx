@@ -1,10 +1,24 @@
+interface Campaign {
+  campaignId: number;
+  clicks: string;
+  cost: string;
+  date: string;
+}
+
+interface Profile {
+  profileId: number;
+  country: string;
+  marketplace: string;
+  campaigns: Campaign[];
+}
+
 interface AccountData {
   userName: string;
   accountId: number;
   email: string;
   authToken: string;
   creationDate: string;
-  profiles?: any;
+  profiles: Profile[];
 }
 
 export const accountData: AccountData[] = [
@@ -679,6 +693,136 @@ export const accountData: AccountData[] = [
     ],
   },
   {
+    userName: "Bob",
+    accountId: 123789,
+    email: "bob@example.com",
+    authToken: "XyZ123456",
+    creationDate: "2023-09-20T10:22:45.123Z",
+    profiles: [
+      {
+        profileId: 98712,
+        country: "Australia",
+        marketplace: "Etsy",
+        campaigns: [
+          {
+            campaignId: 5678912,
+            clicks: "55k",
+            cost: "450$",
+            date: "2024-12-01T15:40:23.987Z",
+          },
+          {
+            campaignId: 12378901,
+            clicks: "70k",
+            cost: "580$",
+            date: "2025-03-08T03:12:54.321Z",
+          },
+        ],
+      },
+      {
+        profileId: 34567,
+        country: "United Kingdom",
+        marketplace: "Amazon",
+        campaigns: [
+          {
+            campaignId: 8912345,
+            clicks: "88k",
+            cost: "720$",
+            date: "2024-10-10T08:56:32.654Z",
+          },
+          {
+            campaignId: 3456789,
+            clicks: "95k",
+            cost: "790$",
+            date: "2025-01-17T17:18:09.987Z",
+          },
+          {
+            campaignId: 12345670,
+            clicks: "78k",
+            cost: "630$",
+            date: "2025-02-05T22:45:36.321Z",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    userName: "Allan",
+    accountId: 753951,
+    email: "allan@example.com",
+    authToken: "aAbbCcDdEeFf12345",
+    creationDate: "2023-11-08T17:30:45.567Z",
+    profiles: [
+      {
+        profileId: 159753,
+        country: "France",
+        marketplace: "Walmart",
+        campaigns: [
+          {
+            campaignId: 9876543,
+            clicks: "75k",
+            cost: "610$",
+            date: "2024-11-15T09:27:18.654Z",
+          },
+          {
+            campaignId: 4567890,
+            clicks: "90k",
+            cost: "720$",
+            date: "2025-01-02T18:45:36.789Z",
+          },
+          {
+            campaignId: 12345678,
+            clicks: "82k",
+            cost: "660$",
+            date: "2025-02-28T06:15:42.654Z",
+          },
+        ],
+      },
+      {
+        profileId: 357951,
+        country: "Spain",
+        marketplace: "Etsy",
+        campaigns: [
+          {
+            campaignId: 1597530,
+            clicks: "63k",
+            cost: "510$",
+            date: "2024-12-01T15:40:23.987Z",
+          },
+          {
+            campaignId: 7539512,
+            clicks: "80k",
+            cost: "650$",
+            date: "2025-03-08T03:12:54.321Z",
+          },
+          {
+            campaignId: 3698765,
+            clicks: "76k",
+            cost: "508$",
+            date: "2025-03-30T05:36:47.221Z",
+          },
+          {
+            campaignId: 7854155,
+            clicks: "112k",
+            cost: "759$",
+            date: "2025-04-15T13:58:14.555Z",
+          },
+          {
+            campaignId: 3698545,
+            clicks: "58k",
+            cost: "423$",
+            date: "2025-05-01T22:20:42.789Z",
+          },
+          {
+            campaignId: 7856355,
+            clicks: "93k",
+            cost: "678$",
+            date: "2025-05-18T06:42:18.987Z",
+          },
+        ],
+      },
+    ],
+  },
+  {
     userName: "Jack",
     accountId: 318462,
     email: "jack12@example.com",
@@ -726,6 +870,59 @@ export const accountData: AccountData[] = [
     ],
   },
   {
+    userName: "Alison",
+    accountId: 654321,
+    email: "alison@example.com",
+    authToken: "Al1s0nAuth123",
+    creationDate: "2023-10-15T11:20:30.789Z",
+    profiles: [
+      {
+        profileId: 987654,
+        country: "Australia",
+        marketplace: "Amazon",
+        campaigns: [
+          {
+            campaignId: 1597532,
+            clicks: "85k",
+            cost: "720$",
+            date: "2024-09-20T08:45:32.654Z",
+          },
+          {
+            campaignId: 7539510,
+            clicks: "92k",
+            cost: "780$",
+            date: "2025-01-10T15:32:54.321Z",
+          },
+          {
+            campaignId: 4567895,
+            clicks: "75k",
+            cost: "630$",
+            date: "2025-02-25T22:10:36.987Z",
+          },
+        ],
+      },
+      {
+        profileId: 3579510,
+        country: "Canada",
+        marketplace: "Shopify",
+        campaigns: [
+          {
+            campaignId: 1597535,
+            clicks: "70k",
+            cost: "580$",
+            date: "2024-11-05T14:40:23.654Z",
+          },
+          {
+            campaignId: 7539515,
+            clicks: "98k",
+            cost: "820$",
+            date: "2025-03-15T03:22:54.321Z",
+          },
+        ],
+      },
+    ],
+  },
+  {
     userName: "Kate",
     accountId: 905724,
     email: "kate13@example.com",
@@ -739,13 +936,13 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 7488559,
-            clicks: 42,
+            clicks: "59k",
             cost: "11k$",
             date: "2023-01-14T07:31:57.221Z",
           },
           {
             campaignId: 159256,
-            clicks: 118,
+            clicks: "118",
             cost: "82k$",
             date: "2023-01-14T07:31:57.221Z",
           },
@@ -767,13 +964,13 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 52582,
-            clicks: 45,
+            clicks: "4k",
             cost: "7478$",
             date: "2023-01-14T07:31:57.221Z",
           },
           {
             campaignId: 59269669,
-            clicks: 3554,
+            clicks: "35k",
             cost: "859$",
             date: "2023-01-14T07:31:57.221Z",
           },
@@ -786,7 +983,7 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 48757747,
-            clicks: 57,
+            clicks: "57",
             cost: "84$",
             date: "2023-01-14T07:31:57.221Z",
           },
@@ -799,9 +996,62 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 444478551,
-            clicks: 148,
+            clicks: "148",
             cost: "156k$",
             date: "2023-01-14T07:31:57.221Z",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    userName: "Alice",
+    accountId: 987654,
+    email: "alice@example.com",
+    authToken: "aBcDeFgH1234",
+    creationDate: "2023-06-12T14:45:32.789Z",
+    profiles: [
+      {
+        profileId: 98765,
+        country: "Canada",
+        marketplace: "Shopify",
+        campaigns: [
+          {
+            campaignId: 1234567,
+            clicks: "65k",
+            cost: "520$",
+            date: "2024-11-15T09:27:18.654Z",
+          },
+          {
+            campaignId: 9876543,
+            clicks: "75k",
+            cost: "610$",
+            date: "2025-01-02T18:45:36.789Z",
+          },
+        ],
+      },
+      {
+        profileId: 78901,
+        country: "Germany",
+        marketplace: "eBay",
+        campaigns: [
+          {
+            campaignId: 4567890,
+            clicks: "90k",
+            cost: "720$",
+            date: "2024-09-02T12:34:56.987Z",
+          },
+          {
+            campaignId: 7890123,
+            clicks: "110k",
+            cost: "880$",
+            date: "2024-10-18T21:03:45.321Z",
+          },
+          {
+            campaignId: 12345678,
+            clicks: "82k",
+            cost: "660$",
+            date: "2025-02-28T06:15:42.654Z",
           },
         ],
       },
@@ -821,7 +1071,7 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 48452963,
-            clicks: 4,
+            clicks: "3k",
             cost: "14596$",
             date: "2023-01-14T07:31:57.221Z",
           },
@@ -834,13 +1084,13 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 885589415,
-            clicks: 4,
+            clicks: "48k",
             cost: "14596$",
             date: "2023-01-14T07:31:57.221Z",
           },
           {
             campaignId: 4882558,
-            clicks: 18,
+            clicks: "33k",
             cost: "858558$",
             date: "2023-01-14T07:31:57.221Z",
           },
@@ -853,7 +1103,7 @@ export const accountData: AccountData[] = [
         campaigns: [
           {
             campaignId: 7155126589,
-            clicks: 59,
+            clicks: "595",
             cost: "48962$",
             date: "2023-01-14T07:31:57.221Z",
           },

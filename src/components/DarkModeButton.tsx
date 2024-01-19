@@ -1,20 +1,23 @@
 import Button from "react-bootstrap/Button";
 import { useTheme } from "../provider";
+import { MdNightlight } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 
 const DarkModeButton = () => {
-  const { theme, toggleTheme, colors } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
       style={{
-        color: colors[theme].color,
-        padding: "8px 16px",
-        border: "none",
-        cursor: "pointer",
+        padding: "12px 12px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
+      variant={theme === "dark" ? "light" : "dark"}
       onClick={toggleTheme}
     >
-      DarkModeButton
+      {theme === "dark" ? <MdLightMode /> : <MdNightlight />}
     </Button>
   );
 };

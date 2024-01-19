@@ -1,9 +1,35 @@
 // provider.js
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
-const ThemeContext = createContext();
+type ThemeContextProps = {
+  theme: string;
+  toggleTheme: () => void;
+  colors: {
+    light: {
+      backgroundColor: string;
+      textColor: string;
+      titleColor: string;
+    };
+    dark: {
+      backgroundColor: string;
+      textColor: string;
+      titleColor: string;
+    };
+    // Add an index signature to allow indexing with a string
+    [key: string]: {
+      backgroundColor: string;
+      textColor: string;
+      titleColor: string;
+    };
+  };
+};
 
-export const ThemeProvider = ({ children }) => {
+
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
@@ -12,13 +38,13 @@ export const ThemeProvider = ({ children }) => {
 
   const colors = {
     light: {
-      backgroundColor: "#ffffff",
-      textColor: "#000000",
-      titleColor: "#007bff", // Add a title color for the button
+      backgroundColor: "#f8f8f8",
+      textColor: "#292726",
+      titleColor: "#007bff",
     },
     dark: {
-      backgroundColor: "#000000",
-      textColor: "#ffffff",
+      backgroundColor: "#292726",
+      textColor: "#f8f8f8",
       titleColor: "#ffffff",
     },
   };

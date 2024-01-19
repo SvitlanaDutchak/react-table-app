@@ -1,4 +1,3 @@
-import React from "react";
 import { accountData } from "../data";
 import RenderData from "./RenderData";
 import TableComponent from "./TableComponent";
@@ -13,7 +12,7 @@ const Result = () => {
     (account) => account.accountId === Number(accountId)
   );
 
-  function handleClick(profileId) {
+  function handleClick(profileId:any) {
     navigate(`/profiles/${accountId}/campaigns/${profileId}`);
   }
 

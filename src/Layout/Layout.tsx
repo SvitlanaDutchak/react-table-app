@@ -1,21 +1,30 @@
+import { ReactNode } from "react";
 import { useTheme } from "../provider";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import DarkModeButton from "../components/DarkModeButton";
+import Col from "react-bootstrap/Col";
 
-const Layout = ({ children }) => {
+const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { theme, colors } = useTheme();
-
+  const currentColors = colors[theme];
   return (
     <div
       style={{
-        background: colors[theme].backgroundColor,
-        color: colors[theme].textColor,
-        height: "100vh"
+        background: currentColors?.backgroundColor,
+        color: currentColors?.textColor,
+        height: "100vh",
       }}
     >
-      <Container className="mt-4">
-        <h1>Vite + React</h1>
-        <DarkModeButton />
+      <Container className="pt-4">
+        <Row className="align-items-center justify-content-center">
+          <Col md="auto">
+            <h1>React Table Data</h1>
+          </Col>
+          <Col md="auto">
+            <DarkModeButton />
+          </Col>
+        </Row>
         {children}
       </Container>
     </div>

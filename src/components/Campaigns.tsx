@@ -5,18 +5,20 @@ import RenderData from "./RenderData";
 import TableComponent from "./TableComponent";
 import BackButton from "./BackButton";
 
-const Result = () => {
+const CampaignsResults = () => {
   const { profileId } = useParams();
 
   const selectedProfile = accountData.find((account) =>
-    account.profiles.some((profile) => profile.profileId === Number(profileId))
+    account.profiles.some(
+      (profile: any) => profile.profileId === Number(profileId)
+    )
   );
 
   return (
     <>
       {selectedProfile &&
         selectedProfile.profiles.map(
-          (profile) =>
+          (profile: any) =>
             profile.profileId === Number(profileId) &&
             profile.campaigns.map(({ campaignId, clicks, cost, date }) => (
               <RenderData
@@ -35,14 +37,14 @@ const Result = () => {
 const Campaigns = () => {
   return (
     <>
-    <BackButton />
+      <BackButton />
       <h2 className="mb-4">Campaigns</h2>
       <TableComponent
         title1={"Campaign Id"}
         title2={"Clicks"}
         title3={"Cost"}
         title4="Date"
-        data={<Result />}
+        data={<CampaignsResults />}
       />
     </>
   );
